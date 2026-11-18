@@ -101,7 +101,7 @@ resource "aws_vpc_dhcp_options_association" "cicd" {
 # ---------------------------------------------------------------- Security Groups
 
 resource "aws_security_group" "dns" {
-  name        = "sg-dns"
+  name        = "cicd-dns"
   description = "DNS-Server dns1 und dns2"
   vpc_id      = aws_vpc.main.id
 
@@ -145,7 +145,7 @@ resource "aws_security_group" "dns" {
 }
 
 resource "aws_security_group" "runner" {
-  name        = "sg-runner"
+  name        = "cicd-runner"
   description = "GitLab Runner"
   vpc_id      = aws_vpc.main.id
 
@@ -175,7 +175,7 @@ resource "aws_security_group" "runner" {
 }
 
 resource "aws_security_group" "gitlab" {
-  name        = "sg-gitlab"
+  name        = "cicd-gitlab"
   description = "GitLab CE"
   vpc_id      = aws_vpc.main.id
 
@@ -221,7 +221,7 @@ resource "aws_security_group" "gitlab" {
 }
 
 resource "aws_security_group" "ldap" {
-  name        = "sg-ldap"
+  name        = "cicd-ldap"
   description = "OpenLDAP"
   vpc_id      = aws_vpc.main.id
 
